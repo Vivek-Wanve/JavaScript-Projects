@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <style>
+        *{
+            margin: 0;
+
+        }
+        .btn{
+            margin: 5%;
+            padding: 1.5%;
+            background-color: rgb(0, 149, 255);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .btn:hover{
+            background-color: rgb(73, 73, 253);
+            cursor: pointer;
+        }
+        .modal{
+            width: 30%;
+            height: auto;
+            border-radius: 5px;
+            background-color: white;
+            border: 1px solid rgb(247, 244, 244);
+            position: absolute;
+            top:10%;
+            left: 35%;
+        } 
+        #myModal{
+            width:100%;
+            height:100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .parts{
+            display: flex;
+            padding: 6%;
+        }
+        #Btn1{
+            background-color: white;
+            border: none;
+            font-size: 1rem;
+            color: gray;
+            margin-left: 65%;
+        }
+        #Btn1:hover{
+            color: black;
+            cursor: pointer;
+        }
+        #Btn2{
+            background-color: rgb(110, 109, 109);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 2.5%;
+            margin-left: 45%;
+        }
+        #Btn2:hover{
+            background-color: rgb(84, 84, 84);
+            cursor: pointer;
+        }
+        #Btn3{
+            background-color: rgb(0, 149, 255);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 2.5%;
+            margin-left: 5%;
+        }
+        #Btn3:hover{
+            background-color: rgb(73, 73, 253);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <button id="Btn" type="button" class="btn">Launch demo model</button>
+
+        <div id="myModal">
+            <div class="modal">
+                <div id="part1" class="parts">
+                    <h3>Modal Title</h3>
+                    <button id="Btn1" type="button">x</button>
+                </div>
+                <hr>
+                <div id="part2" class="parts">
+                    <p>Woohoo, you're reading this text in a modal!</p>
+                </div>
+                <hr>
+                <div id="part3" class="parts">
+                    <button id="Btn2" type="button">Close</button>
+                    <button id="Btn3" type="button">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let B = document.getElementById('Btn');
+        let B1 = document.getElementById('Btn1');
+        let B2 = document.getElementById('Btn2');
+
+        let md = document.getElementById('myModal');
+        
+        B.addEventListener('click', launchFnc);
+        B1.addEventListener("click", xFnc);
+        B2.addEventListener("click", closeFnc);
+
+        function launchFnc(e){
+            e.currentTarget.nextElementSibling.style.display = "block";
+        }
+
+        function xFnc(e){
+            e.currentTarget.parentElement.parentElement.parentElement.style.display = "none";
+        }
+
+        function closeFnc(e){
+            e.currentTarget.parentElement.parentElement.parentElement.style.display = "none";
+        }
+
+        window.onclick = function(e){
+            if(e.target == md){
+                md.style.display = "none";
+            }
+        }
+
+    </script>
+</body>
+</html>
+
