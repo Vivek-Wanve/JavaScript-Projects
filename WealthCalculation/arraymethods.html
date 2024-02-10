@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wealth Calculation</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        h1{
+            margin-top: 2%;
+            margin-left: 40%;
+        }
+        #Buttons{
+            width: 30%;
+            display: grid;
+            padding: 1.5%;
+            height: 100%
+        }
+        #box{
+            display: flex;
+            justify-content: center;
+            padding: 1.5%;
+        }
+        .Btn{
+            width:55%;
+            margin-left: 38%;
+            border: 2px solid rgb(63, 62, 62);
+            padding: 4%;
+            margin-top: 2.5%;
+            margin-bottom: 2.5%;
+            background-color: white;
+            border-radius: 5px;
+        }
+        #Display{
+            border-left: 1px solid rgb(79, 78, 78);
+            width: 30%;
+            padding: 1.5%;
+            height: auto;
+        }
+        .parts{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5%;
+        }
+        #p2{
+            display: block;
+        }
+        .users{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5%;
+        }
+        .heading1{
+            margin-left: 2%;
+        }
+        .heading2{
+            margin-right: 2%;
+            font-size: 1.3rem;
+        }
+        #p3{
+            width: 100%;
+            background-color: white;
+            border-bottom: 2px solid rgb(170, 170, 170);
+            border-top: 2px solid rgb(218, 215, 215);
+            border-left: 2px solid rgb(218, 215, 215);
+            border-right: 2px solid rgb(218, 215, 215);
+            justify-content: space-between;
+            padding: 2%;
+        }
+        .visible{
+            display: none;
+        }
+        .Btn:hover{
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Dom Array Methods</h1>
+    <div id="box">
+        <div id="Buttons">
+            <button id="btn1" class="Btn">Add User</button>
+            <button id="btn2" class="Btn">Double Money</button>
+            <button id="btn3" class="Btn">Show Only Millionaries</button>
+            <button id="btn5" class="Btn">Calculate entire Wealth</button>
+        </div>
+        <div id="Display">
+            <div id="p1" class="parts">
+                <h2 class="heading1">Person</h2>
+                <p class="heading2">Wealth</p>
+            </div>
+            <hr>
+            <div id="p2" class="parts">
+                <div class="users">
+                    <h3 class="visible">Emmanuelle Moreau</h3>
+                    <p class="visible">$1563924.00</p>
+                </div>
+                <div class="users">
+                    <h3 class="visible">Recep Redlich</h3>
+                    <p class="visible">$940846.00</p>
+                </div>
+                <div class="users">
+                    <h3 class="visible">Vivek Wanve</h3>
+                    <p class="visible">$1094729.00</p>
+                </div>
+                <div class="users">
+                    <h3 class="visible">Aino Hamalainen</h3>
+                    <p class="visible">$461949.00</p>
+                </div>
+                <div class="users">
+                    <h3 class="visible">Mihir Mendse</h3>
+                    <p class="visible">$2674549.00</p>
+                </div>
+                <div class="users">
+                    <h3 class="visible">Danilo Brink</h3>
+                    <p class="visible">$449453.00</p>
+                </div>
+                <div class="users">
+                    <h3 class="visible">Maxime Petit</h3>
+                    <p class="visible">$392459.00</p>
+                </div>
+                <div class="users">
+                    <h3 class="visible">Maia Lewis</h3>
+                    <p class="visible">$63171.00</p>
+                </div>
+                <div class="users">
+                    <h3 class="visible">Tristao Santos</h3>
+                    <p class="visible">$40160.00</p>
+                </div>
+                <div class="users">
+                    <h3 class="visible">Hugh Edwards</h3>
+                    <p class="visible">$194729.00</p>
+                </div>
+            </div>
+            <div class="parts">
+                <div id="p3" class="visible">
+                    <h2 class="heading1">Total Wealth:</h2>
+                    <p class="heading2">$0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let Btn1 = document.getElementById('btn1');
+        let Btn2 = document.getElementById('btn2');
+        let Btn3 = document.getElementById('btn3');
+        let Btn5 = document.getElementById('btn5');
+        let part3 = document.getElementById('p3');
+
+        Btn1.addEventListener('click', addUser );
+        Btn2.addEventListener('click', double);
+        Btn3.addEventListener('click', millionary);
+        Btn5.addEventListener('click', total);
+
+        let arr = document.getElementsByClassName('users')
+        let arrUsers = [...arr]
+        
+        let count = 0;
+        
+        function addUser(e){
+            if( count>=10 ){
+                for(let p of arrUsers){
+                    if(p.children[0].style.display == "none"){
+                        p.children[0].style.display = "block";
+                        p.children[1].style.display = "block";
+                        break;
+                    }
+                }
+            }
+            else{
+                arrUsers[count].children[0].style.display = "block";
+                arrUsers[count].children[1].style.display = "block";
+                count++;
+            }     
+        }
+
+        function double(e){
+            for(let p of arrUsers){
+                if(p.children[0].style.display == "block"){
+                    let value = parseFloat(p.children[1].textContent.slice(1,));
+                    let dValue = value*2;
+                    p.children[1].textContent = `$${dValue}`;
+                }
+            }
+        }
+
+        function millionary(e){
+            for(let p of arrUsers){
+                if(p.children[0].style.display == "block"){
+                    let value = parseFloat(p.children[1].textContent.slice(1,));
+                    if(value < 1000000){
+                        p.children[0].style.display = "none";
+                        p.children[1].style.display = "none";
+                    }
+                }
+            }
+        }
+        let sum = 0;
+        function total(e){
+            for(let p of arrUsers){
+                if(p.children[0].style.display == "block"){
+                    let value = parseFloat(p.children[1].textContent.slice(1,));
+                    sum = sum + value;  
+                }
+            }
+            part3.children[1].textContent = `$${sum}`;
+            part3.style.display = "flex";
+            sum=0;
+        }
+    </script>
+</body>
+</html>
+
+
