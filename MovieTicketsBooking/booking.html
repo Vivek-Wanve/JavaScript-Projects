@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            background-color: #4c516d;
+            color: white;
+        }
+        #theater{
+            margin-top: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;
+            height: 400px;
+        }
+        .icon{
+            height: 15px;
+            width: 15px;
+            border-radius: 90% 90% 0% 0%;
+            margin:10%;
+            
+        }
+        .pts{
+            display: flex;
+            margin-bottom: 5%;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .rule{
+            width:30%;
+            display: flex;
+            color: #c4ccfe;
+            align-items: center;
+            justify-content: center;
+        }
+        .na{
+            background-color: #8991bc;
+        }
+        #icn2{
+            background-color: #00FFFF;
+        }
+        .oc{
+            background-color: white;
+        }
+        .sects{
+            display: flex;
+        }
+        #s1{
+            width:15%;
+            height: 100px;
+            align-items: center;
+            justify-content: space-evenly;
+            
+        }
+        #s2{
+            width:30%;
+            height: 100px;
+            align-items: center;
+            justify-content: space-evenly;
+            
+        }
+        #s3{
+            width: 15%;
+            height: 100px;
+            align-items: center;
+            justify-content: space-evenly;
+           
+        }
+        #trapezoid{
+            width:45%;
+            height: 0;
+            border-top:50px solid white;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+        }
+        #p1{
+            margin-bottom: 8%;
+        }
+        #p2{
+            margin-bottom: 8%;
+        }
+        #p5{
+            margin-top: 8%;
+            font-size: 1.2rem;
+        }
+        #ipt{
+            border-radius: 5px;
+            border: none;
+        }
+        #p4{
+            width:60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="theater">
+        <div id="p1" class="pts">
+            <h3>Pick a Movie:</h3>
+            <input type="text" id="ipt">
+        </div>
+        <div id="p2" class="pts">
+            <div class="rule">
+                <div id="icn1" class="icon na"></div>
+                <p>N\A</p>
+            </div>
+            <div class="rule">
+                <div id="icn2" class="icon"></div>
+                <p>Selected</p>
+            </div>
+            <div class="rule">
+                <div id="icn3" class="icon oc"></div>
+                <p>Occupied</p>
+            </div>    
+        </div>
+        <div id="p3" class="pts">
+            <div id="trapezoid"></div>
+        </div>
+        <div id="p4" class="pts">
+            <div id="s1" class="sects">
+                <div class="r">
+                    <div class="icon na"></div>
+                    <div class="icon na" ></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon oc"></div>
+                    <div class="icon na"></div>
+                </div>
+                <div class="r">
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon oc"></div>
+                    <div class="icon na"></div>
+                </div>
+            </div>
+            <div id="s2" class="sects">
+                <div class="r">
+                    <div class="icon na"></div>
+                    <div class="icon na" ></div>
+                    <div class="icon oc"></div>
+                    <div class="icon oc"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                </div>
+                <div class="r">
+                    <div class="icon oc"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                </div>
+                <div class="r">
+                    <div class="icon oc"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                </div>
+                <div class="r">
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon oc"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                </div>
+            </div>
+            <div id="s3" class="sects">
+                <div class="r">
+                    <div class="icon na"></div>
+                    <div class="icon oc" ></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                </div>
+                <div class="r">
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon na"></div>
+                    <div class="icon oc"></div>
+                </div>
+            </div>
+        </div>
+        <div id="p5" class="pts">
+            <p id="txt">you have selected 0 seats for a price of $0</p>
+        </div>
+    </div>
+
+    <script>
+        let selects = document.getElementsByClassName('na');
+        let Txt = document.getElementById('txt');
+
+        for(let ele of selects){
+            ele.addEventListener('click', book);
+        }
+        let price;
+        let count = 0;
+        function book(e){
+            if(e.currentTarget.className == "icon na selected"){
+                e.currentTarget.style.backgroundColor = "#8991bc";
+                count = count-1;
+                price = count*8;
+                Txt.textContent = `you have selected ${count} seats for a price of $${price}`;
+                e.currentTarget.classList.remove("selected");
+            }
+            else{
+                e.currentTarget.style.backgroundColor = "#00FFFF";
+                count = count+1;
+                price = count*8;
+                Txt.textContent = `you have selected ${count} seats for a price of $${price}`;
+                e.currentTarget.classList.add('selected');
+            }
+        }
+    </script>
+</body>
+</html>
