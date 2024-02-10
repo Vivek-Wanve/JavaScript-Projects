@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrollSpy</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        #scroll{
+            display: flex;
+        }
+        ul{
+            margin-top: 15px;
+            margin-left: 10px;
+            width: 500px;
+            height: 100%;
+            list-style-type: none;
+            position: sticky;
+            top: 65px;
+        }
+        .lt{
+            background-color: white;
+            border:4px solid #f8f9fa;
+            padding: 30px;
+            font-size: 2rem;
+        }
+        .lt:hover{
+            background-color:#1877F2;
+            color: white;
+        }
+        #infor{
+            width: 700px;
+            height: auto;
+            padding: 10px;
+        }
+        p{
+            font-size: 1.6rem;
+        }
+        h1{
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .items{
+            margin: 20px;
+        }
+        body{
+            position: relative;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target="ul" data-offset="50">
+    <div id="scroll">
+        <ul>
+            <li class="lt"><a href="#itm1">Item1</a></li>
+            <li class="lt"><a href="#itm2">Item2</li>
+            <li class="lt"><a href="#itm3">Item3</li>
+            <li class="lt"><a href="#itm4">Item4</li>
+        </ul>
+        <div id="infor">
+            <div id="itm1" class="items">
+                <h1>Item1</h1>
+                <p>Item1 Item1 Item1 Item1 Item1Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ipsam deserunt sapiente perferendis similique vitae quia aliquid laudantium repellat hic alias animi quis, cupiditate et dolor provident voluptatibus. Repellat, et!
+                Vitae, harum ab? Vero rem, aliquam, officia tenetur eveniet illum delectus culpa ab odit veritatis, voluptatem provident dolorem architecto saepe magnam nam modi eaque! Cumque consectetur suscipit voluptatem commodi eum!
+                Odio pariatur nulla id itaque placeat, dignissimos dolore debitis eum dolores quibusdam aliquam veniam aut porro qui, quod dolorum deserunt illo accusantium odit, eveniet doloremque. Consequuntur sunt explicabo optio expedita?
+                Consequuntur vel quisquam non aspernatur cum doloribus reprehenderit minus magni? Eius doloremque culpa illum mollitia ducimus minima? Deleniti natus, eius dolores officiis itaque quos debitis fugiat? Reiciendis quam dolore quia.
+                Debitis dicta necessitatibus, harum, minima, nobis ab temporibus eveniet cumque aut in assumenda ex enim delectus perferendis adipisci? Odit exercitationem, amet facere earum vero expedita culpa laborum voluptatem facilis sed!</p>
+            </div>
+            <div id="itm2" class="items">
+                <h1>Item2</h1>
+                <p>Item2 Item2 Item2 Item2 Item2 Item2 Item2 Item2Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sed deleniti fuga beatae porro magnam nobis doloremque inventore pariatur a omnis assumenda, vero amet, ducimus, nisi cum! Tempore, quia aliquid?
+                Mollitia maxime cumque dicta minima, praesentium nam blanditiis quaerat assumenda, culpa veritatis suscipit qui doloribus. Omnis praesentium, dolore ipsum iste blanditiis nostrum dolor, magni voluptas modi quidem nam porro fugiat!
+                Consequatur incidunt sit esse et perferendis. Dicta, consequuntur reprehenderit. Hic reiciendis architecto dolor? Esse dolore numquam commodi itaque eveniet perspiciatis recusandae vel tenetur? Mollitia voluptates corrupti quod exercitationem. Temporibus, fugit?
+                Odio ipsum accusantium in ea, aut id aperiam nemo doloremque. Magni, reiciendis assumenda! Nulla iure voluptatem labore modi excepturi tempore similique reiciendis ratione, laboriosam suscipit illum explicabo! Fugiat, qui nesciunt.</p>
+            </div>
+            <div id="itm3" class="items">
+                <h1>Item3</h1>
+                <p>Item3 Item3 Item3 Item3 Item3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsum et non, beatae tempore aspernatur ducimus ea? Placeat nobis eos eaque deleniti illo similique sed quos! Dolor iusto sint repudiandae.
+                Adipisci, obcaecati beatae, aperiam placeat maiores earum quia perspiciatis repudiandae eos at quam incidunt unde quas nobis dolores iusto doloremque possimus modi magnam aliquid. Cumque accusamus cupiditate aut eligendi ratione!
+                Iusto dolorum quibusdam odio autem enim molestiae excepturi laborum. Fuga impedit nostrum pariatur sint suscipit delectus vitae doloribus omnis at, iusto nihil odio quam, architecto amet placeat eius perspiciatis tempore!
+                Veniam inventore consequuntur repellat quos, hic iure, amet numquam tenetur laborum quo cupiditate aspernatur quisquam beatae vero, distinctio incidunt ullam. Nam rem saepe velit, laudantium aliquam qui cum accusamus reprehenderit!
+                Molestias ad delectus nam nesciunt, placeat voluptatibus reiciendis quae, omnis provident esse officia voluptatem magni dignissimos excepturi consequuntur maxime aliquid ipsam rem laborum? Veniam sed dolor ipsum ullam quia quam.</p>
+            </div>
+            <div id="itm4" class="items">
+                <h1>Item4</h1>
+                <p>Item4 Item4 Item4 Item4 Item4 Item4 Item4 Item4 Item4Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quas qui reiciendis debitis rem vitae, nulla doloribus fugit quibusdam suscipit soluta tenetur modi, nobis cum maiores libero ut, ducimus accusantium?
+                Iusto veniam vitae perspiciatis quo ad molestiae modi blanditiis delectus! Vel fuga nulla distinctio quae minus, ratione dolorum temporibus placeat officia asperiores, cum, in nemo libero reprehenderit! Temporibus, recusandae hic!
+                Dolore deserunt corporis nisi totam enim nulla voluptate ea ducimus corrupti commodi, doloremque similique vero ipsum. Minima pariatur porro delectus nulla quasi maiores obcaecati repudiandae sit facilis, doloribus dolorum esse.
+                Distinctio, dolore reprehenderit quibusdam doloremque facilis adipisci similique exercitationem in libero, aut consequuntur minima mollitia corporis tempora suscipit expedita nisi modi! Sunt, eligendi consequuntur iure esse totam culpa eaque autem!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+</html>
