@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Courses</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <div class="input-group mb-3 mt-5 col-6 mx-auto">
+        <input id="inp" type="text" class="form-control" placeholder="Chapter Name" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="input-group-append">
+          <button id="btn" class="btn btn-outline-success" type="button" id="button-addon2">Add</button>
+        </div>
+    </div>
+
+    <div class="col-6 mx-auto">
+        <ul id="list" class="list-group">
+            <li class="list-group-item d-flex">
+                <h3 class="flex-grow-1">Chapter 1</h3>
+                <button class="btn btn-outline-warning mx-3" onclick="editCourse(this)">Edit</button>
+                <button class="btn btn-outline-danger" onclick="removeCourse(this)">Remove</button>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        let Btn = document.getElementById('btn');
+        let Inp = document.getElementById('inp');
+        Btn.addEventListener('click', addCourse);
+        function addCourse(e){
+            if(list.children[0].textContent == "Nothing else here. Please add courses."){
+                list.children[0].remove();
+            }
+            let Li = document.createElement('li');
+            Li.className = "list-group-item d-flex";
+            Li.innerHTML = `<h3 class="flex-grow-1">${Inp.value}</h3>
+                <button class="btn btn-outline-warning mx-3" onclick="editCourse(this)">Edit</button>
+                <button class="btn btn-outline-danger" onclick="removeCourse(this)">Remove</button>`
+            list.appendChild(Li);
+        }
+
+        function removeCourse(currEle){
+            currEle.parentElement.remove();
+            if(list.children.length <=0)
+            {
+                let msg = document.createElement('h3')
+                msg.textContent = "Nothing else here. Please add courses."
+                list.appendChild(msg);
+            }
+        }
+
+        function editCourse(curr){
+            if(curr.textContent == "Done")
+            {
+                let Name = document.createElement('h3');
+                Name.className = "flex-grow-1";
+                Name.textContent = curr.previousElementSibling.value;
+                curr.parentElement.children[0].replaceWith(Name);
+                curr.textContent = "Edit";
+            }
+            else
+            {
+                let Input = document.createElement('input');
+                Input.type = "text";
+                Input.className = "form-control";
+                Input.placeholder = "Chapter Name";
+                Input.value = curr.previousElementSibling.textContent;
+                curr.parentElement.replaceChild(Input, curr.previousElementSibling);
+                curr.textContent = "Done";
+            }
+        }
+    </script>
+</body>
+</html>
