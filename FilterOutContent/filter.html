@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Out</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            background-color: #5D76A9;
+            color: white;
+            display: flex;
+        }
+        #container{
+            width: 55%;
+            height:auto;
+            margin-top: 2%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1{
+            margin-left: 42%;
+        }
+        #ipt{
+            margin-top: 3%;
+            width: 100%;
+            height: 35px;
+            border: none;
+        }
+        .items{
+            background-color: #012169;
+            padding: 3.5%;
+            margin-bottom: 2%;
+            
+        }
+        h3{
+            margin-bottom: 1%;
+        }
+        .order{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: black;
+            border-radius: 50%;
+            position: relative;
+            top:15px;
+            right: 3%;
+        }
+        #list{
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+          
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>My Blog</h1>
+        <input type="text" id="ipt" placeholder="Filter posts...." onkeyup="filterFunction()">
+        <div id="list">
+            <div id="o1" class="order"><h2>1</h2></div>
+            <div id="list1" class="items">
+                <h3>Siddhant Tiwari</h3>
+                <p>Optio sit soluta qui accusamus natus suscipit asperiores explicabo sed non nihil necessitatibus amet, neque placeat dolores odit aut vero aperiam aliquid. Ipsam maxime mollitia excepturi omnis architecto numquam quidem.</p>
+            </div>
+            <div id="o2" class="order"><h2>2</h2></div>
+            <div id="list2" class="items">
+                <h3>Mihir Mendse</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet incidunt illum officia, eum laudantium rerum, expedita at repellendus recusandae nihil atque accusamus corporis voluptate minus voluptatibus tenetur sapiente nobis natus.</p>
+            </div>
+            <div id="o3" class="order"><h2>3</h2></div>
+            <div id="list3" class="items">
+                <h3>Gaurav Wankhede</h3>
+                <p>Fugiat, reprehenderit. Dicta laborum esse veniam, commodi rem hic maiores ea odit praesentium, velit nihil illum, nostrum harum sapiente tenetur voluptates dignissimos aspernatur porro? Debitis asperiores quam aliquam eum perferendis.</p>
+            </div>
+            <div id="o4" class="order"><h2>4</h2></div>
+            <div id="list4" class="items">
+                <h3>Krishna Thakur</h3>
+                <p>Quo iure officiis, blanditiis, modi et, debitis magni excepturi fugit numquam ipsam sed eos odit recusandae nostrum aliquam. Aliquam, suscipit obcaecati hic magni molestiae nam vel eos sed aperiam voluptas!
+                Iste.</p>
+            </div>
+            <div id="o5" class="order"><h2>5</h2></div>
+            <div id="list5" class="items">
+                <h3>Vivek Wanve</h3>
+                <p>Porro eos quo debitis est, adipisci provident, optio in molestiae facilis veniam voluptate ducimus culpa amet aut id, ullam voluptates placeat. Culpa tempora, iure sequi minima dolorum quam dicta architecto.</p>
+            </div>
+            <div id="o6" class="order"><h2>6</h2></div>
+            <div id="list6" class="items">
+                <h3>Neha Tomar</h3>
+                <p>Dolores praesentium recusandae ipsam iste eligendi neque accusantium sit debitis quas beatae! Ullam, dolorum aut et ipsa obcaecati dignissimos repellat aspernatur, aperiam sit assumenda architecto impedit necessitatibus.</p>
+            </div>
+            <div id="o7" class="order"><h2>7</h2></div>
+            <div id="list7" class="items">
+                <h3>Neha Girhe</h3>
+                <p>Ad magnam beatae adipisci sit tempore consequatur ipsum voluptas optio. Provident eaque repellat, natus quod odit excepturi blanditiis impedit nihil totam? Explicabo autem libero veniam consequuntur velit quod, esse pariatur.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function filterFunction(){
+            let Input = document.getElementById('ipt');
+            let its = document.getElementsByClassName('items');
+            let inputValue = Input.value.toLowerCase();
+            for(let ele of its){
+                if(ele.textContent.toLowerCase().indexOf(inputValue) < 0){
+                    ele.style.display = "none";
+                    ele.previousElementSibling.style.display = "none";
+                }
+                else{
+                    ele.style.display = "block";
+                    ele.previousElementSibling.style.display = "flex";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
