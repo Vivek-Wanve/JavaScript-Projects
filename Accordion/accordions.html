@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordions</title>
+    <style>
+        #content{
+            width: 50%;
+            height: auto;
+            background-color: white;
+            border:4px solid #f8f9fa;
+            padding:2%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2%;
+        }
+        .list{
+            display: flex;
+            padding: 0.5%;
+            background-color:white;
+            border:3px solid #f8f9fa;
+        }
+        #text{
+            margin-left: 4%;
+        }
+        #arrow{
+            margin-left: 68%;
+            transform: rotate(90deg);
+        }
+        .list:hover{
+            background-color:#a8defe;
+            color: #1877F2;
+            border: 3px solid #1877F2;
+            cursor: pointer;
+        }
+        .info{
+            padding: 2%;
+            background-color:white;
+            border:3px solid #f8f9fa;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="li1" class="list">
+            <h3 id="text">Accordion item #1</h3>
+            <h3 id="arrow">></h3>
+        </div>
+        <div id="info1" class="info">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, esse? Magnam natus obcaecati, cumque, assumenda quae dolores quisquam impedit, commodi omnis cupiditate libero temporibus exercitationem deserunt. Animi atque maiores aut? Autem soluta odit aliquid voluptas architecto quibusdam accusamus doloribus, minus, natus deleniti veniam. Natus quas, reprehenderit officiis, commodi dignissimos id facere quidem voluptates blanditiis magni neque quasi reiciendis, quia nesciunt!</p>
+        </div>
+        <div id="li2" class="list">
+            <h3 id="text">Accordion item #2</h3>
+            <h3 id="arrow">></h3>
+        </div>
+        <div id="info2" class="info">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta veritatis eos, inventore facere iste, ullam minima animi delectus quis repudiandae aliquid dolorem repellendus sit aliquam possimus dolore, sint nihil recusandae!</p>
+        </div>
+        <div id="li3" class="list">
+            <h3 id="text">Accordion item #3</h3>
+            <h3 id="arrow">></h3>
+        </div>
+        <div id="info3" class="info">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, distinctio. Nihil numquam fugit iste architecto praesentium, ex ipsam? Quae molestiae non numquam veniam repellendus quia optio. Quo magni eum ipsam! Tenetur, soluta suscipit exercitationem iure adipisci delectus perferendis vitae non voluptates reprehenderit ullam error libero laboriosam minus illo neque, laborum fuga voluptas! Hic dicta quae nisi molestiae, nemo expedita id. At ipsam eaque illo accusamus perferendis dolor officia corrupti hic iure ut. Voluptatibus ipsam odit, repellat sequi harum similique distinctio exercitationem a dolorem saepe expedita soluta placeat sapiente aperiam optio.</p>
+        </div>
+    </div>
+    <script>
+        let Li1 = document.getElementById('li1');
+        let Li2 = document.getElementById('li2');
+        let Li3 = document.getElementById('li3');
+
+        Li1.addEventListener('click', textDisplay1);
+        Li2.addEventListener('click', textDisplay2);
+        Li3.addEventListener('click', textDisplay3);
+
+        function textDisplay1(e){
+            let nxt = e.currentTarget.nextElementSibling;
+            if(nxt.style.display == 'none'){
+                nxt.style.display = 'block';
+                e.currentTarget.children[1].style.transform = "rotate(-90deg)";
+            }
+            else{
+                nxt.style.display = 'none';
+                e.currentTarget.children[1].style.transform = "rotate(90deg)";
+            }
+        }
+        function textDisplay2(e){
+            let nxt = e.currentTarget.nextElementSibling;
+            if(nxt.style.display == 'none'){
+                nxt.style.display = 'block';
+                e.currentTarget.children[1].style.transform = "rotate(-90deg)";
+            }
+            else{
+                nxt.style.display = 'none';
+                e.currentTarget.children[1].style.transform = "rotate(90deg)";
+            }
+        }
+        function textDisplay3(e){
+            let nxt = e.currentTarget.nextElementSibling;
+            if(nxt.style.display == 'none'){
+                nxt.style.display = 'block';
+                e.currentTarget.children[1].style.transform = "rotate(-90deg)";
+            }
+            else{
+                nxt.style.display = 'none';
+                e.currentTarget.children[1].style.transform = "rotate(90deg)";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
