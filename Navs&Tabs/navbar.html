@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .nav{
+            display: flex;
+            background-color: rgb(245, 244, 244);
+            width: 100%;
+            height: 60px;
+            align-items: center;
+        }
+        .items{
+            margin-left: 3%;
+            margin-top: 1%;
+            padding: 1%;
+        }
+        .items:hover{
+            cursor: pointer;
+            border: 1px solid rgb(134, 134, 134);
+            border-bottom: none;
+        }
+        .main{
+            padding: 2%;
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="window">
+        <div class="nav">
+            <h4 id="item1" class="items">Home</h4>
+            <h4 id="item2" class="items">Profile</h4>
+            <h4 id="item3" class="items">Contact</h4>
+        </div>
+        <hr>
+        <div id="hide">
+            <div id="home" class="main">
+                <p>HOME Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, sint! Similique quisquam atque autem adipisci? Amet ut, quae sapiente error veritatis assumenda veniam et ipsum laboriosam rem mollitia facere natus?
+                Ullam corrupti tenetur iusto dicta totam, aut fugiat enim necessitatibus rerum ipsam rem eaque harum cum nemo neque maxime id, a ipsa consequuntur nam. Distinctio libero laudantium id harum unde.</p>
+            </div>
+            <div id="profile" class="main">
+                <p>PROFILE Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, sunt? In suscipit ratione culpa saepe molestias labore molestiae facere voluptatem officia placeat odit, magni ipsa! Omnis, perspiciatis. Rerum, accusantium laborum!
+                Quia laboriosam ratione pariatur earum corrupti consectetur debitis. Magnam modi itaque eum omnis harum nam non repudiandae, sint quidem obcaecati dicta amet animi delectus sapiente quis. Cum eos corrupti dolore?
+                A voluptatem architecto, saepe dignissimos dicta qui maxime minima vitae consequuntur. Maiores modi mollitia ipsum quas, odio dolore officia voluptas? Eos assumenda amet nulla perspiciatis quasi ab. Quisquam, dolore? Adipisci.</p>
+            </div>
+            <div id="contact" class="main">
+                <p>CONTACT Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores eveniet debitis, vero cum odit veniam impedit id voluptates cumque, voluptatibus quae fugit, voluptate commodi fugiat suscipit alias eos molestiae. Ex!
+                Magni excepturi nostrum aperiam, quos facilis illum saepe cum sapiente, molestias minima magnam, facere dolorum ad non? Unde consectetur totam libero alias, fuga explicabo dignissimos vitae nobis impedit, iste quidem.
+                Voluptatum corporis a necessitatibus libero perspiciatis, veritatis voluptate earum, cumque odio expedita ipsa nihil, rem minima soluta debitis totam itaque modi. Repellendus vel placeat voluptas veritatis eos porro ipsum explicabo!
+                Quia esse est reprehenderit! Modi facere sapiente qui, soluta recusandae voluptatum dolorum ex tenetur, aliquid, quisquam harum earum nemo et illo. Quae corrupti fugiat ipsum modi aliquam corporis expedita. Quos.</p>
+            </div>
+        </div> 
+    </div>   
+        
+            
+    
+
+    <script>
+        let Item1 = document.getElementById('item1');
+        let Item2 = document.getElementById('item2');
+        let Item3 = document.getElementById('item3');
+
+        Item1.addEventListener('click', homeFnc);
+        Item2.addEventListener('click', profileFnc);
+        Item3.addEventListener('click', contactFnc);
+
+        function homeFnc(e){
+            let cnt = e.currentTarget.parentElement.nextElementSibling.nextElementSibling;
+            if(cnt.children[0].style.display == "none"){
+                cnt.children[0].style.display = "block";
+                cnt.children[1].style.display = "none";
+                cnt.children[2].style.display = "none";
+                e.currentTarget.style.border = "1px solid rgb(134, 134, 134)";
+                e.currentTarget.style.borderBottom = "1px solid rgb(245, 244, 244)";
+                e.currentTarget.nextElementSibling.style.border = "none";
+                e.currentTarget.nextElementSibling.nextElementSibling.style.border = "none";
+            }else{
+                cnt.children[0].style.display = "none";
+                e.currentTarget.style.border = "none";
+            }
+        }
+
+        function profileFnc(e){
+            let cnt = e.currentTarget.parentElement.nextElementSibling.nextElementSibling;
+            if(cnt.children[1].style.display == "none"){
+                cnt.children[0].style.display = "none";
+                cnt.children[1].style.display = "block";
+                cnt.children[2].style.display = "none";
+                e.currentTarget.style.border = "1px solid rgb(134, 134, 134)";
+                e.currentTarget.style.borderBottom = "1px solid rgb(245, 244, 244)";
+                e.currentTarget.previousElementSibling.style.border = "none";
+                e.currentTarget.nextElementSibling.style.border = "none";
+            }else{
+                cnt.children[1].style.display = "none";
+                e.currentTarget.style.border = "none";
+            }
+        }
+
+        function contactFnc(e){
+            let cnt = e.currentTarget.parentElement.nextElementSibling.nextElementSibling;
+            if(cnt.children[2].style.display == "none"){
+                cnt.children[0].style.display = "none";
+                cnt.children[1].style.display = "none";
+                cnt.children[2].style.display = "block";
+                e.currentTarget.style.border = "1px solid rgb(134, 134, 134)";
+                e.currentTarget.style.borderBottom = "1px solid rgb(245, 244, 244)";
+                e.currentTarget.previousElementSibling.previousElementSibling.style.border = "none";
+                e.currentTarget.previousElementSibling.style.border = "none";
+            }else{
+                cnt.children[2].style.display = "none";
+                e.currentTarget.style.border = "none";
+            }
+        }
+    </script>
+    
+</body>
+</html>
+
